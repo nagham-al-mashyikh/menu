@@ -1,9 +1,8 @@
-/* --- 1. الإعدادات العامة والخطوط --- */
-:root {
-    --primary-color: #5c3d2e;      /* بني دافئ مميز للكافيهات */
+ :root {
+    --primary-color: #5c3d2e;      
     --primary-hover: #43281c;
     --accent-color: #8c5a3c;
-    --bg-light: #fbf9f6;            /* خلفية كريمية دافئة */
+    --bg-light: #fbf9f6;           
     --card-bg: #ffffff;
     --text-dark: #2b231f;
     --text-muted: #7d6e65;
@@ -26,8 +25,7 @@ body {
     padding-bottom: 40px;
 }
 
-/* --- 2. الهيدر وشريط البحث --- */
-.main-header {
+ .main-header {
     background: linear-gradient(135deg, #43281c, #6f4e37);
     color: #ffffff;
     text-align: center;
@@ -72,8 +70,7 @@ body {
     transform: scale(1.02);
 }
 
-/* --- 3. شريط التبويبات للأقسام --- */
-.categories-nav {
+ .categories-nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -119,8 +116,7 @@ body {
     box-shadow: 0 3px 8px rgba(92, 61, 46, 0.3);
 }
 
-/* --- 4. شبكة عرض الكروت --- */
-.menu-container {
+ .menu-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
@@ -129,8 +125,7 @@ body {
     gap: 20px;
 }
 
-/* --- 5. كروت الأصناف والتنسيق الداخلي --- */
-.menu-card {
+ .menu-card {
     background-color: var(--card-bg);
     border-radius: var(--radius);
     padding: 0 0 15px 0;
@@ -215,8 +210,7 @@ body {
     transform: scale(0.97);
 }
 
-/* --- 6. زر السلة العائم والنافذة المنبثقة (بمنتصف الشاشة مع Scroll) --- */
-.cart-floating-btn {
+ .cart-floating-btn {
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -237,8 +231,7 @@ body {
     transform: scale(1.05);
 }
 
-/* خلفية المودال لتوسيط النافذة بمنتصف الشاشة */
-.cart-modal {
+ .cart-modal {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -246,8 +239,8 @@ body {
     height: 100vh !important;
     background: rgba(0, 0, 0, 0.6) !important;
     display: none;
-    justify-content: center !important; /* توسيط أفقي */
-    align-items: center !important;    /* توسيط عمودي */
+    justify-content: center !important;  
+    align-items: center !important;     
     z-index: 99999 !important;
     padding: 15px;
 }
@@ -256,12 +249,11 @@ body {
     display: flex !important;
 }
 
-/* تصميم نافذة السلة نفسها */
-.cart-content {
+ .cart-content {
     background-color: #ffffff !important;
     width: 100%;
     max-width: 420px;
-    max-height: 85vh; /* أقصى ارتفاع لتبقى بوسط الشاشة وما تغطيها كلها */
+    max-height: 85vh;  
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -305,15 +297,13 @@ body {
     color: var(--primary-color);
 }
 
-/* قسم الأصناف مع تفعيل السحب/التمرير (Scroll) بسلاسة عند زيادة الأصناف */
-.cart-items {
+ .cart-items {
     flex: 1;
     overflow-y: auto;
     margin: 15px 0;
-    padding-left: 5px; /* مسافة بسيطة لbar التمرير */
+    padding-left: 5px;  
     max-height: 45vh;
-    /* تخصيص شكل شريط التمرير (Scrollbar) ليظهر أنيقاً */
-    scrollbar-width: thin;
+     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) #f0f0f0;
 }
 
@@ -393,8 +383,7 @@ body {
     margin: 30px 0;
 }
 
-/* --- 7. التجاوب للشاشات الصغيرة (الجوال) --- */
-@media (max-width: 600px) {
+ @media (max-width: 600px) {
     .restaurant-name {
         font-size: 1.75rem;
     }
@@ -441,6 +430,6 @@ body {
     }
 
     .cart-content {
-        max-width: 90%; /* تأخذ معظم عرض الشاشة بمرونة على الموبايل */
+        max-width: 90%; 
     }
 }

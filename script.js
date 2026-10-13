@@ -1,23 +1,16 @@
-// ==========================================
-// 1. الثوابت والإعدادات الرئيسية
-// ==========================================
-// استبدلي هذا الرابط برابط الـ Apps Script الخاص بملف الشيت تبعك
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyuy_ysXbnnbsAanEyNtccX0iiwKd6FGZIHy9YAC0zvejsvz1Bj_EZ-G3Rn5J9zPxsN/exec";
+ 
+ const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyuy_ysXbnnbsAanEyNtccX0iiwKd6FGZIHy9YAC0zvejsvz1Bj_EZ-G3Rn5J9zPxsN/exec";
 
 const DEFAULT_PRICE = 2.50;
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80";
 
 let menuItems = [];
 let cart = [];
-
-// ==========================================
-// 2. جلب البيانات من Google Sheets
-// ==========================================
+ 
 async function fetchMenuItems() {
     const container = document.getElementById("menuContainer");
 
-    // جلب البيانات المخزنة محلياً لفتح المنيو بشكل فوري وسريع
-    const cachedData = localStorage.getItem("menuData");
+     const cachedData = localStorage.getItem("menuData");
     if (cachedData) {
         try {
             menuItems = JSON.parse(cachedData);
@@ -61,10 +54,7 @@ async function fetchMenuItems() {
         console.error("خطأ في تحميل المنيو من الشيت:", error);
     }
 }
-
-// ==========================================
-// 3. عرض المنيو والفلترة
-// ==========================================
+ 
 function displayMenuItems(items) {
     const container = document.getElementById("menuContainer");
     if (!container) return;
@@ -110,10 +100,7 @@ function filterCategory(category, event) {
         displayMenuItems(filtered);
     }
 }
-
-// ==========================================
-// 4. إدارة السلة
-// ==========================================
+ 
 function addToCart(id) {
     const item = menuItems.find(prod => prod.id === id);
     if (!item) return;
@@ -184,10 +171,7 @@ function toggleCart() {
     const modal = document.getElementById("cartModal");
     if (modal) modal.classList.toggle("active");
 }
-
-// ==========================================
-// 5. تهيئة البحث والتشغيل عند التحميل
-// ==========================================
+ 
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {

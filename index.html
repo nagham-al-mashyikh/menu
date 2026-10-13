@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- الهيدر وشريط البحث -->
+    
     <header class="main-header">
         <h1 class="restaurant-name">كافيه </h1>
         <p class="slogan">أجود أنواع القهوة والمشروبات الطازجة</p>
@@ -19,8 +19,7 @@
         </div>
     </header>
 
-    <!-- شريط التبويبات للأقسام -->
-    <nav class="categories-nav">
+     <nav class="categories-nav">
         <button class="nav-btn active" onclick="filterCategory('all', event)">الكل</button>
         <button class="nav-btn" onclick="filterCategory('hot_drinks', event)">مشروبات ساخنة</button>
         <button class="nav-btn" onclick="filterCategory('cold_drinks', event)">مشروبات باردة</button>
@@ -28,16 +27,13 @@
         <button class="nav-btn" onclick="filterCategory('bakery', event)">المخبوزات والوافل</button>
      </nav>
 
-    <!-- شبكة عرض الكروت -->
-    <main class="menu-container" id="menuContainer"></main>
+     <main class="menu-container" id="menuContainer"></main>
 
-    <!-- زر السلة العائم -->
-    <button class="cart-floating-btn" onclick="toggleCart()">
+     <button class="cart-floating-btn" onclick="toggleCart()">
         🛒 السلة (<span id="cartCount">0</span>)
     </button>
 
-    <!-- نافذة السلة المنبثقة (بمنتصف الشاشة مع تمرير سلس) -->
-    <div class="cart-modal" id="cartModal">
+     <div class="cart-modal" id="cartModal">
         <div class="cart-content">
             <div class="cart-header">
                 <h2>سلة الطلبات المختارة</h2>

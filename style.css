@@ -1,0 +1,446 @@
+/* --- 1. الإعدادات العامة والخطوط --- */
+:root {
+    --primary-color: #5c3d2e;      /* بني دافئ مميز للكافيهات */
+    --primary-hover: #43281c;
+    --accent-color: #8c5a3c;
+    --bg-light: #fbf9f6;            /* خلفية كريمية دافئة */
+    --card-bg: #ffffff;
+    --text-dark: #2b231f;
+    --text-muted: #7d6e65;
+    --border-color: #e8e2dc;
+    --shadow: 0 4px 15px rgba(92, 61, 46, 0.08);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    direction: rtl;
+    padding-bottom: 40px;
+}
+
+/* --- 2. الهيدر وشريط البحث --- */
+.main-header {
+    background: linear-gradient(135deg, #43281c, #6f4e37);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 15px 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.restaurant-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.slogan {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.search-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* --- 3. شريط التبويبات للأقسام --- */
+.categories-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.categories-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-btn {
+    background-color: #f4efe9;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-btn:hover {
+    background-color: #e8dfd5;
+}
+
+.nav-btn.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 8px rgba(92, 61, 46, 0.3);
+}
+
+/* --- 4. شبكة عرض الكروت --- */
+.menu-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* --- 5. كروت الأصناف والتنسيق الداخلي --- */
+.menu-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 0 0 15px 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-image-container {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover .item-img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+.menu-card h3, .card-body h3 {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.item-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 2px 0;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    width: 100%;
+    max-width: 140px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.97);
+}
+
+/* --- 6. زر السلة العائم والنافذة المنبثقة (بمنتصف الشاشة مع Scroll) --- */
+.cart-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border: none;
+    z-index: 999;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cart-floating-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+/* خلفية المودال لتوسيط النافذة بمنتصف الشاشة */
+.cart-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    display: none;
+    justify-content: center !important; /* توسيط أفقي */
+    align-items: center !important;    /* توسيط عمودي */
+    z-index: 99999 !important;
+    padding: 15px;
+}
+
+.cart-modal.active {
+    display: flex !important;
+}
+
+/* تصميم نافذة السلة نفسها */
+.cart-content {
+    background-color: #ffffff !important;
+    width: 100%;
+    max-width: 420px;
+    max-height: 85vh; /* أقصى ارتفاع لتبقى بوسط الشاشة وما تغطيها كلها */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 100000 !important;
+    animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.cart-header h2 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* قسم الأصناف مع تفعيل السحب/التمرير (Scroll) بسلاسة عند زيادة الأصناف */
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-left: 5px; /* مسافة بسيطة لbar التمرير */
+    max-height: 45vh;
+    /* تخصيص شكل شريط التمرير (Scrollbar) ليظهر أنيقاً */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) #f0f0f0;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f4efe9;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+}
+
+.cart-item-price {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-controls button {
+    background: #f4efe9;
+    border: 1px solid #ccc;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.quantity-controls button:hover {
+    background: #e0d7cd;
+}
+
+.cart-footer {
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+    flex-shrink: 0;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.empty-msg {
+    text-align: center;
+    color: var(--text-muted);
+    margin: 30px 0;
+}
+
+/* --- 7. التجاوب للشاشات الصغيرة (الجوال) --- */
+@media (max-width: 600px) {
+    .restaurant-name {
+        font-size: 1.75rem;
+    }
+
+    .slogan {
+        font-size: 0.88rem;
+    }
+
+    .main-header {
+        padding: 20px 12px 15px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .nav-btn {
+        padding: 8px 16px;
+        font-size: 0.88rem;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+        margin: 20px auto;
+    }
+
+    .menu-card {
+        padding-bottom: 12px;
+        border-radius: 10px;
+    }
+
+    .card-image-container {
+        height: 130px;
+        margin-bottom: 8px;
+    }
+
+    .menu-card h3, .card-body h3 {
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .add-to-cart-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .cart-content {
+        max-width: 90%; /* تأخذ معظم عرض الشاشة بمرونة على الموبايل */
+    }
+}

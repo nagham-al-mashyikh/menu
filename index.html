@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنيو الإلكتروني </title>
+    <meta name="description" content="تصفح المنيو الإلكتروني السريع واكتشف أصنافنا المميزة.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر وشريط البحث -->
+    <header class="main-header">
+        <h1 class="restaurant-name">كافيه </h1>
+        <p class="slogan">أجود أنواع القهوة والمشروبات الطازجة</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ابحث عن مشروبك أو تحليتك المفضلة...">
+        </div>
+    </header>
+
+    <!-- شريط التبويبات للأقسام -->
+    <nav class="categories-nav">
+        <button class="nav-btn active" onclick="filterCategory('all', event)">الكل</button>
+        <button class="nav-btn" onclick="filterCategory('hot_drinks', event)">مشروبات ساخنة</button>
+        <button class="nav-btn" onclick="filterCategory('cold_drinks', event)">مشروبات باردة</button>
+        <button class="nav-btn" onclick="filterCategory('desserts', event)">الحلويات</button>
+        <button class="nav-btn" onclick="filterCategory('bakery', event)">المخبوزات والوافل</button>
+     </nav>
+
+    <!-- شبكة عرض الكروت -->
+    <main class="menu-container" id="menuContainer"></main>
+
+    <!-- زر السلة العائم -->
+    <button class="cart-floating-btn" onclick="toggleCart()">
+        🛒 السلة (<span id="cartCount">0</span>)
+    </button>
+
+    <!-- نافذة السلة المنبثقة (بمنتصف الشاشة مع تمرير سلس) -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>سلة الطلبات المختارة</h2>
+                <button class="close-btn" onclick="toggleCart()">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItemsContainer">
+                <p class="empty-msg">السلة فارغة حالياً</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-price">
+                    <span>المجموع الكلي:</span>
+                    <span id="totalAmount">0.00 د.أ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
